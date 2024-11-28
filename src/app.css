@@ -1,3 +1,18 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities'
+@import 'tailwindcss/utilities';
+
+body {
+	@apply bg-neutral-800 text-neutral-300;
+	@apply font-mono font-extralight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	@apply cursor-default select-none;
+}
