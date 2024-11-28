@@ -1,4 +1,5 @@
 <script lang="ts">
+	export const prerender = true;
 	import { onMount } from 'svelte';
 	import '../app.css';
 
@@ -18,9 +19,9 @@
 			{@render children()}
 		{:else}
 			<h1 class="-space-x-5 text-center text-5xl font-bold text-white">
-				<span class="animate-duration-700 animate-pulse">.</span>
-				<span class="animate-delay-100 animate-duration-700 animate-pulse">.</span>
-				<span class="animate-delay-200 animate-duration-700 animate-pulse">.</span>
+				<span class="animate-pulse animate-duration-700">.</span>
+				<span class="animate-pulse animate-delay-100 animate-duration-700">.</span>
+				<span class="animate-pulse animate-delay-200 animate-duration-700">.</span>
 			</h1>
 		{/if}
 	</main>
