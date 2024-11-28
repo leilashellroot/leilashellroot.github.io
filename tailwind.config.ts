@@ -7,5 +7,26 @@ export default {
 		extend: {}
 	},
 
-	plugins: []
+	plugins: [
+		function ({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					'animate-delay': (value) => ({
+						animationDelay: value
+					})
+				},
+				{ values: theme('transitionDelay') }
+			);
+		},
+		function ({ matchUtilities, theme }) {
+			matchUtilities(
+				{
+					'animate-duration': (value) => ({
+						animationDuration: value
+					})
+				},
+				{ values: theme('transitionDuration') }
+			);
+		}
+	]
 } satisfies Config;
