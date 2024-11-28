@@ -1,5 +1,4 @@
 <script>
-	export const prerender = true;
 	import Link from '$lib/link.svelte';
 	import { typewriter } from '$lib/typewriter-transition';
 	import { fade } from 'svelte/transition';
