@@ -19,25 +19,37 @@ export function typewriter(
 	{ speed = 1, duration, hideCursor = false, delay = 0 }: TypewriterParams
 ) {
 	const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
+	const validFirstChild =
+		node.firstChild &&
+		(node.firstChild.nodeType === Node.TEXT_NODE || !!node.firstChild.textContent?.length);
 
-	if (!valid) {
-		throw new Error(`This transition only works on elements with a single text node child`);
+	if (!valid && !validFirstChild) {
+		throw new Error(
+			`This transition only works on elements with a single text node child or a first child that is a text node or has text content`
+		);
 	}
 
-	const text = node.textContent ?? '';
+	const refNode = validFirstChild ? node.firstChild : node;
+	const text = refNode.textContent ?? '';
 	const totalDuration = duration ?? text.length / (speed * 0.01);
+
+	// Initially hide the entire node
+	node.style.visibility = 'hidden';
 
 	return {
 		duration: totalDuration + delay,
 		tick: (t: number) => {
 			const progress = t * (totalDuration + delay);
 			if (progress <= delay) {
-				node.textContent = '';
 				return;
 			}
+
+			// Show the node once delay is reached
+			node.style.visibility = 'visible';
+
 			const adjustedT = (progress - delay) / totalDuration;
 			const i = Math.trunc(text.length * adjustedT);
-			node.textContent = text.slice(0, i) + (i < text.length && !hideCursor ? '_' : '');
+			refNode.textContent = text.slice(0, i) + (i < text.length && !hideCursor ? '_' : '');
 		}
 	};
 }
