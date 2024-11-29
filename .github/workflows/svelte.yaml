@@ -1,4 +1,4 @@
-name: Build and Deploy Svelte App
+name: My Portfolio
 
 on:
   push:
