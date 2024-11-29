@@ -4,24 +4,25 @@
 	import { fade } from 'svelte/transition';
 
 	const nameContent = 'Leila Ilkhani';
-	const descriptionContent = `Frontend Engineer with a systems thinker's soul.
-		My journey from backend to frontend development empowers me to craft elegant web solutions that
-			delight users while empowering developers.
-		I specialize in building maintainable architectures that turn complex challenges into seamless
-		experiences.`;
+	const descriptionContent = `A systems thinker at heart,
+	my journey from backend roots empowers me to craft elegant web solutions that delight users while empowering developers.
+	I specialize in building maintainable architectures that turn complex challenges into seamless experiences.`;
+	const footerContent = `Where clean code meets clear communication`;
 
 	const Steps = {
 		Name: 0,
 		Title: 1,
 		Description: 2,
-		Links: 3
+		Links: 3,
+		Footer: 4
 	} as const;
 
 	const stepDurations = {
 		[Steps.Name]: 300,
 		[Steps.Title]: 200,
 		[Steps.Description]: 800,
-		[Steps.Links]: 300
+		[Steps.Links]: 300,
+		[Steps.Footer]: 200
 	};
 
 	let currentStep = Steps.Name;
@@ -36,18 +37,15 @@
 <div class="mx-auto flex w-full max-w-md flex-col gap-8">
 	<section class="flex flex-col gap-4">
 		<div class="flex flex-col gap-1">
-			<h1 class="flex gap-1 text-4xl font-bold">
-				<span
-					in:typewriter={{
-						delay: getDelay(Steps.Name),
-						duration: stepDurations[Steps.Name],
-						speed: 3,
-						hideCursor: true
-					}}
-				>
-					Leila Ilkhani
-				</span>
-				<span class="w-0 -translate-y-0.5 animate-pulse text-white">_</span>
+			<h1
+				in:typewriter={{
+					delay: getDelay(Steps.Name),
+					duration: stepDurations[Steps.Name],
+					speed: 3
+				}}
+				class="text-4xl font-bold"
+			>
+				Leila Ilkhani
 			</h1>
 			<h2
 				class="text-2xl text-neutral-400"
@@ -60,7 +58,7 @@
 			</h2>
 		</div>
 		<p
-			class="whitespace-pre-line text-sm sm:text-justify"
+			class="whitespace-pre-line text-sm"
 			in:typewriter={{
 				delay: getDelay(Steps.Description),
 				duration: stepDurations[Steps.Description]
@@ -90,4 +88,24 @@
 			title="Disabled for privacy concerns"
 		/>
 	</section>
+	<footer class="text-sm">
+		<span
+			in:typewriter={{
+				delay: getDelay(Steps.Footer),
+				duration: stepDurations[Steps.Footer],
+				hideCursor: true
+			}}
+		>
+			{footerContent}
+		</span>
+		<span
+			in:fade={{
+				delay: getDelay(Steps.Footer),
+				duration: 50
+			}}
+			class="-ml-1 -translate-y-px animate-pulse animate-duration-700"
+		>
+			_
+		</span>
+	</footer>
 </div>
