@@ -1,12 +1,13 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
 
 	let {
 		href,
-		label,
 		disabled = false,
-		title
-	}: { href: string; label: string; disabled?: boolean; title?: string } = $props();
+		title,
+		children
+	}: { href: string; disabled?: boolean; title?: string; children: Snippet } = $props();
 
 	let isHovered = $state(false);
 </script>
@@ -28,7 +29,7 @@
 		class:group-hover:text-primary-pale={!disabled}
 		class:opacity-50={disabled}
 	>
-		{'> '}{label}
+		{'> '}{@render children()}
 	</span>
 	{#if isHovered && title}
 		<span

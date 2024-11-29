@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Link from '$lib/link.svelte';
+	import LinksSection from '$lib/LinksSection.svelte';
 	import { typewriter } from '$lib/typewriter-transition';
 	import { fade } from 'svelte/transition';
 
@@ -68,41 +68,22 @@
 		</p>
 	</section>
 	<section
-		class="grid grid-cols-2 gap-6 sm:gap-4"
 		in:fade={{
 			delay: getDelay(Steps.Links),
 			duration: stepDurations[Steps.Links]
 		}}
 	>
-		<Link label="CV" href="https://leilynn.link/cv/frontend.pdf" />
-		<Link label="Email" href="mailto:work@leilynn.link" title="work@leilynn.link" />
-		<Link label="GitHub" href="https://github.com/clonomaer" title="@clonomaer" />
-		<Link label="Telegram" href="https://t.me/clei420" title="@clei420" />
-		<Link
-			label="LinkedIn"
-			href="https://linkedin.com/in/ilkhani"
-			disabled
-			title="Disabled for privacy concerns"
-		/>
+		<LinksSection />
 	</section>
-	<footer class="text-sm">
-		<span
-			in:typewriter={{
-				delay: getDelay(Steps.Footer),
-				duration: stepDurations[Steps.Footer],
-				hideCursor: true
-			}}
-		>
-			{footerContent}
-		</span>
-		<span
-			in:fade={{
-				delay: getDelay(Steps.Footer),
-				duration: 50
-			}}
-			class="-ml-1 -translate-y-px animate-pulse animate-duration-700"
-		>
-			_
-		</span>
+	<footer
+		class="text-sm"
+		in:typewriter={{
+			delay: getDelay(Steps.Footer),
+			duration: stepDurations[Steps.Footer],
+			hideCursor: true
+		}}
+	>
+		{footerContent}
+		<span class="-ml-1 -translate-y-px animate-pulse animate-duration-700">_</span>
 	</footer>
 </div>
