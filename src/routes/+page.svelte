@@ -74,10 +74,7 @@
 			duration: stepDurations[Steps.Links]
 		}}
 	>
-		<Link
-			label="CV"
-			href="https://github.com/clonomaer/public-cv-v2/releases/download/v1.0.0/frontend.pdf"
-		/>
+		<Link label="CV" href="https://leilynn.link/cv/frontend.pdf" />
 		<Link label="Email" href="mailto:work@leilynn.link" title="work@leilynn.link" />
 		<Link label="GitHub" href="https://github.com/clonomaer" title="@clonomaer" />
 		<Link label="Telegram" href="https://t.me/clei420" title="@clei420" />
