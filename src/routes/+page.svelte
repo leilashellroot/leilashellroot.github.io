@@ -60,7 +60,7 @@
 			</h2>
 		</div>
 		<p
-			class="whitespace-pre-line text-justify text-sm"
+			class="whitespace-pre-line text-sm sm:text-justify"
 			in:typewriter={{
 				delay: getDelay(Steps.Description),
 				duration: stepDurations[Steps.Description]
@@ -70,7 +70,7 @@
 		</p>
 	</section>
 	<section
-		class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+		class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-4"
 		in:fade={{
 			delay: getDelay(Steps.Links),
 			duration: stepDurations[Steps.Links]
