@@ -48,7 +48,7 @@
 				Leila Ilkhani
 			</h1>
 			<h2
-				class="text-2xl text-neutral-400"
+				class="text-foreground-400 text-2xl"
 				in:typewriter={{
 					delay: getDelay(Steps.Title),
 					duration: stepDurations[Steps.Title]

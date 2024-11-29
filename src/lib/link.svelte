@@ -23,9 +23,9 @@
 	onclick={disabled ? (e) => e.preventDefault() : undefined}
 >
 	<span
-		class="w-fit text-purple-400"
+		class="text-primary w-fit"
 		class:transition-colors={!disabled}
-		class:group-hover:text-purple-300={!disabled}
+		class:group-hover:text-primary-pale={!disabled}
 		class:opacity-50={disabled}
 	>
 		{'> '}{label}
@@ -34,7 +34,7 @@
 		<span
 			in:fly={{ y: 10, duration: 200 }}
 			out:fly={{ y: 10, duration: 200 }}
-			class="pointer-events-none absolute bottom-full left-0 -translate-y-1 whitespace-nowrap rounded-md bg-neutral-500 bg-opacity-10 px-3 py-2 text-sm backdrop-blur-md"
+			class="bg-foreground-200 pointer-events-none absolute bottom-full left-0 -translate-y-1 whitespace-nowrap rounded-md bg-opacity-10 px-3 py-2 text-sm backdrop-blur-md"
 		>
 			{title}
 		</span>

@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 body {
-	@apply bg-neutral-800 text-neutral-300;
+	@apply bg-background text-foreground;
 	@apply font-mono font-extralight;
 }
 
