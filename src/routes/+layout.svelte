@@ -12,16 +12,20 @@
 	});
 </script>
 
-<div class="flex min-h-screen w-full flex-col items-center justify-center">
-	<main class="w-full max-w-screen-sm px-3">
+<svelte:head>
+	<title>Leila Ilkhani</title>
+</svelte:head>
+
+<div class="flex min-h-[100dvh] w-full flex-col items-center justify-center">
+	<main class="w-full max-w-screen-sm px-5 sm:px-3">
 		{#if visible}
 			{@render children()}
 		{:else}
-			<h1 class="space-x-1 text-center text-2xl font-bold text-white">
+			<div class="space-x-1 text-center text-2xl font-bold text-white">
 				<span class="animate-pulse animate-duration-700">●</span>
 				<span class="animate-pulse animate-delay-100 animate-duration-700">●</span>
 				<span class="animate-pulse animate-delay-200 animate-duration-700">●</span>
-			</h1>
+			</div>
 		{/if}
 	</main>
 </div>

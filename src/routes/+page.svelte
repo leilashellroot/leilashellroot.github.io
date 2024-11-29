@@ -34,7 +34,7 @@
 	}
 </script>
 
-<div class="mx-auto flex w-full max-w-md flex-col gap-8">
+<div class="mx-auto flex w-full max-w-md flex-col gap-8 py-8">
 	<section class="flex flex-col gap-4">
 		<div class="flex flex-col gap-1">
 			<h1
@@ -68,7 +68,7 @@
 		</p>
 	</section>
 	<section
-		class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-4"
+		class="grid grid-cols-2 gap-6 sm:gap-4"
 		in:fade={{
 			delay: getDelay(Steps.Links),
 			duration: stepDurations[Steps.Links]
