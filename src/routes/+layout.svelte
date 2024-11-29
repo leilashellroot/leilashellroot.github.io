@@ -13,7 +13,7 @@
 </script>
 
 <div class="flex min-h-screen w-full flex-col items-center justify-center">
-	<main class="flex w-96 max-w-screen-sm flex-col gap-12 px-3">
+	<main class="w-full max-w-screen-sm px-3">
 		{#if visible}
 			{@render children()}
 		{:else}
