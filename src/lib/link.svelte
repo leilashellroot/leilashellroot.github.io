@@ -32,7 +32,7 @@
 	</span>
 	{#if isHovered && title}
 		<span
-			in:fly={{ y: 10, duration: 300 }}
+			in:fly={{ y: 10, duration: 200 }}
 			out:fly={{ y: 10, duration: 200 }}
 			class="pointer-events-none absolute bottom-full left-0 -translate-y-1 whitespace-nowrap rounded-md bg-neutral-500 bg-opacity-10 px-3 py-2 text-sm backdrop-blur-md"
 		>
