@@ -1,13 +1,13 @@
 <script lang="ts">
 	import LinksSection from '$lib/LinksSection.svelte';
 	import { typewriter } from '$lib/typewriter-transition';
-	import { fade } from 'svelte/transition';
 
 	const nameContent = 'Leila Ilkhani';
+	const titleContent = 'Frontend Engineer';
 	const descriptionContent = `A systems thinker at heart,
 	my journey from backend roots empowers me to craft elegant web solutions that delight users while empowering developers.
 	I specialize in building maintainable architectures that turn complex challenges into seamless experiences.`;
-	const footerContent = `Where clean code meets clear communication`;
+	const footerContent = 'Where clean code meets clear communication';
 
 	const Steps = {
 		Name: 0,
@@ -17,20 +17,10 @@
 		Footer: 4
 	} as const;
 
-	const stepDurations = {
-		[Steps.Name]: 300,
-		[Steps.Title]: 200,
-		[Steps.Description]: 800,
-		[Steps.Links]: 300,
-		[Steps.Footer]: 200
-	};
+	let currentStep: number = $state(0);
 
-	let currentStep = Steps.Name;
-
-	function getDelay(step: number) {
-		return Object.values(stepDurations)
-			.slice(0, step)
-			.reduce((acc, curr) => acc + curr, 0);
+	function onIntroEndCapture() {
+		currentStep++;
 	}
 </script>
 
@@ -39,51 +29,54 @@
 		<div class="flex flex-col gap-1">
 			<h1
 				in:typewriter={{
-					delay: getDelay(Steps.Name),
-					duration: stepDurations[Steps.Name],
+					duration: 300,
 					speed: 3
 				}}
+				onintroendcapture={onIntroEndCapture}
 				class="text-4xl font-bold"
 			>
-				Leila Ilkhani
+				{nameContent}
 			</h1>
-			<h2
-				class="text-foreground-400 text-2xl"
-				in:typewriter={{
-					delay: getDelay(Steps.Title),
-					duration: stepDurations[Steps.Title]
-				}}
-			>
-				Frontend Engineer
-			</h2>
+			{#if currentStep >= Steps.Title}
+				<h2
+					class="text-2xl text-foreground-400"
+					in:typewriter={{
+						speed: 7
+					}}
+					onintroendcapture={onIntroEndCapture}
+				>
+					{titleContent}
+				</h2>
+			{/if}
 		</div>
-		<p
-			class="whitespace-pre-line text-sm"
+		{#if currentStep >= Steps.Description}
+			<p
+				class="whitespace-pre-line text-sm"
+				in:typewriter={{
+					speed: 15
+				}}
+				onintroendcapture={onIntroEndCapture}
+			>
+				{descriptionContent}
+			</p>
+		{/if}
+	</section>
+	{#if currentStep >= Steps.Links}
+		<section>
+			<LinksSection onintroendcapture={onIntroEndCapture} />
+		</section>
+	{/if}
+	{#if currentStep >= Steps.Footer}
+		<footer
+			class="text-sm"
 			in:typewriter={{
-				delay: getDelay(Steps.Description),
-				duration: stepDurations[Steps.Description]
+				speed: 7,
+				hideCursor: true
 			}}
+			onintroendcapture={onIntroEndCapture}
 		>
-			{descriptionContent}
-		</p>
-	</section>
-	<section
-		in:fade={{
-			delay: getDelay(Steps.Links),
-			duration: stepDurations[Steps.Links]
-		}}
-	>
-		<LinksSection />
-	</section>
-	<footer
-		class="text-sm"
-		in:typewriter={{
-			delay: getDelay(Steps.Footer),
-			duration: stepDurations[Steps.Footer],
-			hideCursor: true
-		}}
-	>
-		{footerContent}
-		<span class="-ml-1 -translate-y-px animate-pulse animate-duration-700">_</span>
-	</footer>
+			{footerContent}
+			<span class="-ml-1 -translate-y-px animate-pulse animate-duration-700">_</span>
+		</footer>
+	{/if}
 </div>
