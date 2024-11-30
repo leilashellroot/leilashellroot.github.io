@@ -33,19 +33,20 @@ export function typewriter(
 	const text = refNode.textContent ?? '';
 	const totalDuration = duration ?? text.length / (speed * 0.01);
 
-	// Initially hide the entire node
-	node.style.visibility = 'hidden';
+	node.style.contentVisibility = 'hidden';
+	refNode.textContent = '';
 
 	return {
 		duration: totalDuration + delay,
 		tick: (t: number) => {
 			const progress = t * (totalDuration + delay);
+
 			if (progress <= delay) {
 				return;
 			}
 
 			// Show the node once delay is reached
-			node.style.visibility = 'visible';
+			node.style.contentVisibility = '';
 
 			const adjustedT = (progress - delay) / totalDuration;
 			const i = Math.trunc(text.length * adjustedT);
