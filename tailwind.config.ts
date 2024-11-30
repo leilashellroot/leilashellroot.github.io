@@ -32,6 +32,12 @@ export default {
 					400: 'rgb(155, 155, 155)',
 					200: 'rgb(115, 115, 115)'
 				}
+			},
+			keyframes: {
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.2' }
+				}
 			}
 		}
 	},
