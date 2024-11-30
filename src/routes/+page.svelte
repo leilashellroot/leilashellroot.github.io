@@ -14,7 +14,8 @@
 		Title: 1,
 		Description: 2,
 		Links: 3,
-		Footer: 4
+		Footer: 4,
+		FooterPulse: 5
 	} as const;
 
 	let currentStep: number = $state(0);
@@ -41,7 +42,7 @@
 				<h2
 					class="text-2xl text-foreground-400"
 					in:typewriter={{
-						speed: 7
+						speed: 5
 					}}
 					onintroendcapture={onIntroEndCapture}
 				>
@@ -70,13 +71,14 @@
 		<footer
 			class="text-sm"
 			in:typewriter={{
-				speed: 7,
-				hideCursor: true
+				speed: 5
 			}}
 			onintroendcapture={onIntroEndCapture}
 		>
 			{footerContent}
-			<span class="-ml-1 -translate-y-px animate-pulse animate-duration-700">_</span>
+			{#if currentStep >= Steps.FooterPulse}
+				<span class="-ml-1 -translate-y-px animate-pulse animate-duration-700">_</span>
+			{/if}
 		</footer>
 	{/if}
 </div>

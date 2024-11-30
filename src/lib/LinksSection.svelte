@@ -25,7 +25,7 @@
 				<Link href={link.href} title={link.title} disabled={link.disabled} noPrepend>
 					<span
 						in:typewriter|global={{
-							speed: 5
+							speed: 4
 						}}
 						onintroendcapture={() => {
 							currentIndex++;
