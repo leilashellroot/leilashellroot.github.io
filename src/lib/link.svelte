@@ -2,12 +2,15 @@
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	let {
-		href,
-		disabled = false,
-		title,
-		children
-	}: { href: string; disabled?: boolean; title?: string; children: Snippet } = $props();
+	type Props = {
+		href: string;
+		disabled?: boolean;
+		title?: string;
+		noPrepend?: boolean;
+		children: Snippet;
+	};
+
+	let { href, disabled = false, title, noPrepend = false, children }: Props = $props();
 
 	let isHovered = $state(false);
 </script>
@@ -24,18 +27,21 @@
 	onclick={disabled ? (e) => e.preventDefault() : undefined}
 >
 	<span
-		class="text-primary w-fit"
+		class="w-fit text-primary"
 		class:transition-colors={!disabled}
 		class:group-hover:text-primary-pale={!disabled}
 		class:opacity-50={disabled}
 	>
-		{'> '}{@render children()}
+		{#if !noPrepend}
+			{'> '}
+		{/if}
+		{@render children()}
 	</span>
 	{#if isHovered && title}
 		<span
 			in:fly={{ y: 10, duration: 200 }}
 			out:fly={{ y: 10, duration: 200 }}
-			class="bg-foreground-200 pointer-events-none absolute bottom-full left-0 -translate-y-1 whitespace-nowrap rounded-md bg-opacity-10 px-3 py-2 text-sm backdrop-blur-md"
+			class="pointer-events-none absolute bottom-full left-0 -translate-y-1 whitespace-nowrap rounded-md bg-foreground-200 bg-opacity-10 px-3 py-2 text-sm backdrop-blur-md"
 		>
 			{title}
 		</span>
