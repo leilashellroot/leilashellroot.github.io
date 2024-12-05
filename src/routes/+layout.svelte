@@ -12,10 +12,6 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Leila Ilkhani</title>
-</svelte:head>
-
 <div class="flex min-h-[100dvh] w-full flex-col items-center justify-center">
 	<main class="w-full max-w-screen-sm px-5 sm:px-3">
 		{#if visible}
