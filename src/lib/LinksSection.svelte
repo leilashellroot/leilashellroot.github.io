@@ -4,8 +4,8 @@
 
 	let { onintroendcapture }: { onintroendcapture: () => void } = $props();
 	const linkData = [
-		{ href: 'https://leilynn.link/cv/frontend.pdf', label: 'CV' },
-		{ href: 'mailto:work@leilynn.link', label: 'Email' },
+		{ href: 'https://leila.sh/cv/frontend.pdf', label: 'CV' },
+		{ href: 'mailto:work@leila.sh', label: 'Email' },
 		{ href: 'https://github.com/clonomaer', label: 'GitHub' },
 		{ href: 'https://t.me/clei420', label: 'Telegram' },
 		{
