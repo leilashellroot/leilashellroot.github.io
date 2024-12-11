@@ -5,14 +5,25 @@
 	let { onintroendcapture }: { onintroendcapture: () => void } = $props();
 	const linkData = [
 		{ href: 'https://leila.sh/cv/frontend.pdf', label: 'CV' },
-		{ href: 'mailto:work@leila.sh', label: 'Email' },
-		{ href: 'https://github.com/clonomaer', label: 'GitHub' },
-		{ href: 'https://t.me/clei420', label: 'Telegram' },
+		{ 
+			href: 'mailto:work@leila.sh',
+			label: 'Email',
+			title: 'work@leila.sh'
+		},
+		{ 
+			href: 'https://github.com/clonomaer',
+			label: 'GitHub',
+			title: '@clonomaer'
+		},
+		{ 
+			href: 'https://t.me/clei420',
+			label: 'Telegram',
+			title: '@clei420'
+		},
 		{
 			href: 'https://linkedin.com/in/ilkhani',
 			label: 'LinkedIn',
-			disabled: true,
-			title: 'Disabled for privacy concerns'
+			title: 'in/ilkhani'
 		}
 	];
 	let currentIndex = $state(0);
