@@ -11,14 +11,14 @@
 			title: 'work@leila.sh'
 		},
 		{ 
-			href: 'https://github.com/clonomaer',
+			href: 'https://github.com/leilashellroot',
 			label: 'GitHub',
-			title: '@clonomaer'
+			title: '@LeilaShellRoot'
 		},
 		{ 
-			href: 'https://t.me/clei420',
+			href: 'https://t.me/leilashellroot',
 			label: 'Telegram',
-			title: '@clei420'
+			title: '@LeilaShellRoot'
 		},
 		{
 			href: 'https://linkedin.com/in/ilkhani',
