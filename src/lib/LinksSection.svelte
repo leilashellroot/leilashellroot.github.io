@@ -1,29 +1,31 @@
 <script lang="ts">
-	import Link from './link.svelte';
+	import Link, { type LinkProps } from './link.svelte';
 	import { typewriter } from './typewriter-transition';
 
 	let { onintroendcapture }: { onintroendcapture: () => void } = $props();
-	const linkData = [
-		{ href: 'https://leila.sh/cv/frontend.pdf', label: 'CV' },
-		{ 
+	const linkData: (Omit<LinkProps, 'children'> & { label: string })[] = [
+		{
+			href: '/cv/frontend.pdf',
+			label: 'CV'
+		},
+		{
 			href: 'mailto:work@leila.sh',
 			label: 'Email',
 			title: 'work@leila.sh'
 		},
-		{ 
+		{
 			href: 'https://github.com/leilashellroot',
 			label: 'GitHub',
-			title: '@LeilaShellRoot'
-		},
-		{ 
-			href: 'https://t.me/leilashellroot',
-			label: 'Telegram',
 			title: '@LeilaShellRoot'
 		},
 		{
 			href: 'https://linkedin.com/in/ilkhani',
 			label: 'LinkedIn',
 			title: 'in/ilkhani'
+		},
+		{
+			href: '/leila_ilkhani.vcf',
+			label: 'VCard'
 		}
 	];
 	let currentIndex = $state(0);
@@ -33,7 +35,7 @@
 	{#each linkData as link, index (link.href)}
 		{#if currentIndex >= index}
 			<li>
-				<Link href={link.href} title={link.title} disabled={link.disabled} noPrepend>
+				<Link {...link} noPrepend>
 					<span
 						in:typewriter|global={{
 							speed: 4

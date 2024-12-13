@@ -1,16 +1,18 @@
-<script lang="ts">
-	import type { Snippet } from 'svelte';
-	import { fly } from 'svelte/transition';
-
-	type Props = {
+<script lang="ts" module>
+	export type LinkProps = {
 		href: string;
 		disabled?: boolean;
 		title?: string;
 		noPrepend?: boolean;
 		children: Snippet;
 	};
+</script>
 
-	let { href, disabled = false, title, noPrepend = false, children }: Props = $props();
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+	import { fly } from 'svelte/transition';
+
+	let { href, disabled = false, title, noPrepend = false, children }: LinkProps = $props();
 
 	let isHovered = $state(false);
 </script>
