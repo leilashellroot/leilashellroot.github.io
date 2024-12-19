@@ -15,6 +15,7 @@
 	let { href, disabled = false, title, noPrepend = false, children }: LinkProps = $props();
 
 	let isHovered = $state(false);
+	let isExternal = $derived(href.match(/^https?:\/\//));
 </script>
 
 <a
@@ -25,6 +26,7 @@
 	onpointerenter={() => (isHovered = true)}
 	onpointerleave={() => (isHovered = false)}
 	target="_blank"
+	rel={isExternal ? 'noopener noreferrer nofollow' : undefined}
 	aria-disabled={disabled}
 	onclick={disabled ? (e) => e.preventDefault() : undefined}
 >
