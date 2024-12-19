@@ -8,14 +8,14 @@ EMAIL;type=INTERNET;type=WORK;type=pref:work@leila.sh
 EMAIL;type=INTERNET:personal@leila.sh
 TEL;type=WORK;type=VOICE;type=pref:+1 (646) 624-7426
 TEL;type=CELL;type=VOICE:+98 922 292 6908
-item1.URL;type=pref:https://t.me/leilashellroot
-item1.X-ABLabel:Telegram
-item2.URL:https://linkedin.com/in/ilkhani
-item2.X-ABLabel:LinkedIn
-item3.URL:https://github.com/leilashellroot
-item3.X-ABLabel:GitHub
-item4.URL:https://leila.sh
-item4.X-ABLabel:_$!<HomePage>!$_
+item1.URL;type=pref:https://leila.sh
+item1.X-ABLabel:Homepage
+item2.URL:https://telegram.leila.sh
+item2.X-ABLabel:Telegram
+item3.URL:https://linkedin.leila.sh
+item3.X-ABLabel:LinkedIn
+item4.URL:https://github.leila.sh
+item4.X-ABLabel:GitHub
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAA
  AAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABQKADAAQAAAABAA
  ABQAAAAAD/wAARCAFAAUADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcI

@@ -4,6 +4,7 @@
 		disabled?: boolean;
 		title?: string;
 		noPrepend?: boolean;
+		isFile?: boolean;
 		children: Snippet;
 	};
 </script>
@@ -12,15 +13,24 @@
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
 
-	let { href, disabled = false, title, noPrepend = false, children }: LinkProps = $props();
+	let {
+		href,
+		disabled = false,
+		title,
+		noPrepend = false,
+		children,
+		isFile = false
+	}: LinkProps = $props();
 
 	let isHovered = $state(false);
 	let isExternal = $derived(href.match(/^https?:\/\//));
+	let fileName = $derived(isFile ? href.split('/').pop() : undefined);
 </script>
 
 <a
 	class="group w-fit"
 	{href}
+	download={fileName}
 	class:relative={title}
 	class:cursor-not-allowed={disabled}
 	onpointerenter={() => (isHovered = true)}

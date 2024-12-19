@@ -25,7 +25,8 @@
 		},
 		{
 			href: '/leila_ilkhani.vcf',
-			label: 'VCard'
+			label: 'VCard',
+			isFile: true
 		}
 	];
 	let currentIndex = $state(0);
