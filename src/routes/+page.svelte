@@ -2,7 +2,7 @@
 	import LinksSection from '$lib/LinksSection.svelte';
 	import { typewriter } from '$lib/typewriter-transition';
 
-	const nameContent = 'Leila Ilkhani';
+	const nameContent = 'Leila ilkhani';
 	const titleContent = 'Frontend Engineer';
 	const descriptionContent = `A systems thinker at heart,
 	my journey from backend roots empowers me to craft elegant web solutions that delight users while empowering developers.
