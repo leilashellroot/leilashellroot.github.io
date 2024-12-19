@@ -14,12 +14,12 @@
 			title: 'work@leila.sh'
 		},
 		{
-			href: 'https://github.com/leilashellroot',
+			href: 'https://gh.leila.sh/',
 			label: 'GitHub',
 			title: '@LeilaShellRoot'
 		},
 		{
-			href: 'https://linkedin.com/in/ilkhani',
+			href: 'https://in.leila.sh/',
 			label: 'LinkedIn',
 			title: 'in/ilkhani'
 		},
